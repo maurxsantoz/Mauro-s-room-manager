@@ -37,6 +37,7 @@ client.on("messageCreate", (message) => {
   //if the message is from the bot or doesn't start with ! they are ignored
   if (!message.content.startsWith("r!") && !message.content.startsWith("!"))
     return;
+    
   if (message.author.bot) return;
 
   //different commands
