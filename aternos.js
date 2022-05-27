@@ -47,7 +47,7 @@ async function getServerName(page) {
 }
 
 async function getPlayers(page) {
-    let players = await ph.getText(page, '#players');
+    let players = await ph.getText(page, 'div.live-status-box-value.js-players');
     if (players) {
         players = players.split('/');
         return {
