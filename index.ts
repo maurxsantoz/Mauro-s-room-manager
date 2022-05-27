@@ -1,7 +1,6 @@
 import DiscordJS, { Intents } from "discord.js";
 import dotenv from "dotenv";
 import {RoomManager} from "./rooms";
-import Gamedig from 'gamedig';
 const aternos = require('./aternos');
 
 //get the token from the .env file
