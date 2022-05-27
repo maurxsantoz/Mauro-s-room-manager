@@ -107,7 +107,8 @@ client.on("messageCreate", (message) => {
             content: "The server is running!",
           });
         })
-        .catch(()=>{
+        .catch((error:any)=>{
+          console.log (error);
           message.reply({
             content: "Something went wrong, try again later or @ Other",
           });
@@ -121,7 +122,8 @@ client.on("messageCreate", (message) => {
             content: "The server is currently "+value.status.text,
           });
         })
-        .catch(()=>{
+        .catch((error:any)=>{
+          console.log (error);
           message.reply({
             content: "Something went wrong, try again later or @ Other",
           });
