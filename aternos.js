@@ -184,7 +184,6 @@ async function connect(id, req) {
         if (browser) {            
             await browser.close();
         }
-        info.elapsed = new Date() - time;
         return info;
     }
 }
