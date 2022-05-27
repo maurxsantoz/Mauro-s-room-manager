@@ -4,7 +4,7 @@ const ph = require('./puppeteer-helper');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const AdblockerPlugin = require('puppeteer-extra-plugin-adblocker')
 
-const hostname = 'https://aternos.org';
+const hostname = 'https://aternos.org/go/';
 
 const to = {
     default: 10000,
