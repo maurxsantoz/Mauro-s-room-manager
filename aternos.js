@@ -129,7 +129,8 @@ async function getServerInfo(page) {
 async function connect(id, req) {
     const startPage = hostname + '/go';
 
-    let browser, info, time = new Date();
+    let browser, time = new Date();
+    info = new Date()||{};
 
     try {            
         const headless = process.env.DEBUG ? !process.env.DEBUG : true;
