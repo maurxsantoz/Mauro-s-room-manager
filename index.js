@@ -18,9 +18,12 @@ const helpMessage =
   "                    ---------------                        \n" +
   "                     🐬Minecraft🐬                         \n" +
   "          🐬please wait a bit before retrying🐬             \n" +
+  "🐬! ip🐬                  -   Shows the server ip address      \n" +
   "🐬! status🐬              -   Shows the server status      \n" +
   "🐬! start🐬               -   Starts the server          \n" +
+  "🐬! players🐬             -   Shows current amount of players on the server\n" +
   "```";
+const serverIp = "DLUminecraft.aternos.me";
 //instantiate the discord client
 const client = new Client({
   intents: [
@@ -108,6 +111,11 @@ client.on("messageCreate", (message) => {
         });
       }
       break;
+    case "ip":
+        message.reply({
+          content: serverIp,
+        });
+        break;
     case "start":
       message.reply({
         content: "Got it! give it a second, I'll @ you when its done",
@@ -141,6 +149,29 @@ client.on("messageCreate", (message) => {
             content: "Something went wrong, please try again later or @ Other",
           });
         });
+      break;
+    case "players":
+      aternos
+        .getInfo(process.env.SERVER_ID)
+        .then((value) => {
+          console.log(value);
+          if (value.status.text === "Online") {
+            message.reply({
+              content: "The server is currently running with " + value.players.current + "/"+ value.players.max +" players online ",
+            });
+          }else{
+            message.reply({
+              content: "Cant get player amount because the server isn't currently Online",
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          message.reply({
+            content: "Something went wrong, please try again later or @ Other",
+          });
+        });
+        break;
     default:
       break;
   }
