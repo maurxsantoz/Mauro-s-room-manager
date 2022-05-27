@@ -134,7 +134,7 @@ async function connect(id, req) {
 
     try {            
         const headless = process.env.DEBUG ? !process.env.DEBUG : true;
-        browser = await puppeteer.launch({headless});
+        browser = await puppeteer.launch({ args: ['--no-sandbox'] });
         
         const page = await browser.newPage();
         await page.setViewport({ width: 1920, height: 1080});
