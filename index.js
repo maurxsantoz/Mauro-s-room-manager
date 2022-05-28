@@ -126,13 +126,14 @@ client.on("messageCreate", (message) => {
           message.reply({
             content: "The server is running!",
           });
-        })
+        })        
         .catch((error) => {
           console.log(error);
           message.reply({
             content: "Something went wrong, please try again later or @ Other",
           });
         });
+        
       break;
     case "status":  
       aternos
