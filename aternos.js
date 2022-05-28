@@ -140,9 +140,9 @@ async function connect(id, req) {
         await page.setViewport({ width: 1920, height: 1080});
 
         await page.goto(startPage);
-        await page.type('#user', process.env.ATERNOS_USER);
-        await page.type('#password', process.env.ATERNOS_PASSWORD);
-        await page.click('#login');
+        await page.type('input#user', process.env.ATERNOS_USER);
+        await page.type('input#password', process.env.ATERNOS_PASSWORD);
+        await page.click('div#login');
 
         await page.waitForFunction(() => {
             let le = document.querySelector('div.login-error');
